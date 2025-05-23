@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+
+<body>
+    <div>jquery ajax</div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        //2번 ajax의 데이터 호출결과를 건너뛰고 다음 코드를 실행하는 것이 
+        //자바스크립트의 비동기 처리로 볼 수 있다.
+        function fetchData() {
+            //1
+            var result = [];
+
+            //2
+            $.ajax({
+                url: 'https://api.hnpwa.com/v0/news/1.json',
+                success: function (data) {
+                    console.log('데이터 호출 결과', data);
+                    result = data;
+                    //데이터가 success하고 함수결과를 표시
+                    console.log('함수 결과', result);
+                }
+            });
+
+            //3 
+            //console.log('함수 결과', result);
+        }
+        fetchData();
+    </script>
+</body>
+
+</html>
